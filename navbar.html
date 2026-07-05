@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Bootstrap 3 JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Validator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BDAxd+1j+gudLWI+BXq4IuLW5IT+brZEZSLFm++aCM1F1V92rMrPkPaX4PP"
+        crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="sty.css">
+
+    <title>Contact Form</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="#">
+                    <span style="color: rgb(44,255,44);"><b>CNC WEB WORLD</b></span>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+                <form class="navbar-form navbar-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Heading -->
+
+    <div class="container">
+        <h1 class="text-success text-center">Contact Us</h1>
+    </div>
+
+    <!-- Form -->
+
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2">
+
+            <form id="myform" class="bg-light" method="post">
+
+                <div class="form-group">
+
+                    <label>Name:</label>
+
+                    <input type="text"
+                        class="form-control"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Email:</label>
+
+                    <input type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Contact:</label>
+
+                    <input type="text"
+                        class="form-control"
+                        id="contact"
+                        name="contact"
+                        maxlength="10"
+                        placeholder="Enter your contact number">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Comments:</label>
+
+                    <textarea
+                        class="form-control"
+                        id="message"
+                        name="message"
+                        rows="4"
+                        placeholder="Enter your comments"></textarea>
+
+                </div>
+
+                <!-- Submit Button -->
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-lg">
+                        Submit
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#myform').bootstrapValidator({
+
+                feedbackIcons: {
+
+                    valid: 'glyphicon glyphicon-ok',
+
+                    invalid: 'glyphicon glyphicon-remove',
+
+                    validating: 'glyphicon glyphicon-refresh'
+
+                },
+
+                fields: {
+
+                    name: {
+
+                        validators: {
+
+                            notEmpty: {
+
+                                message: 'Please enter your name'
+
+                            },
+
+                            stringLength: {
+
+                                min: 2,
+
+                                message: 'Name must be at least 2 characters'
+
+                            }
+
+                        }
+
+                    },
+
+                    email: {
+
+                        validators: {
+
+                            notEmpty: {
+
+                                message: 'Please enter your email'
+
+                            },
+
+                            emailAddress: {
+
+                                message: 'Please enter a valid email address'
+
+                            }
+
+                        }
+
+                    },
+
+                    contact: {
+
+                        validators: {
+
+                            notEmpty: {
+
+                                message: 'Please enter your contact number'
+
+                            },
+
+                            stringLength: {
+
+                                min: 10,
+
+                                max: 10,
+
+                                message: 'Contact number must be 10 digits'
+
+                            },
+
+                            regexp: {
+
+                                regexp: /^[0-9]+$/,
+
+                                message: 'Only digits are allowed'
+
+                            }
+
+                        }
+
+                    },
+
+                    message: {
+
+                        validators: {
+
+                            notEmpty: {
+
+                                message: 'Please enter your comments'
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
